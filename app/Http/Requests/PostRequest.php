@@ -13,7 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,16 @@ class PostRequest extends FormRequest
      *
      * @return array
      */
+
+    /*Reglas de validaciones
+    para el envio de información
+    de los formularios :)
+    */
     public function rules()
     {
+        //http://laravel.com/docs/5.4/
         return [
-            //
+            'content' => 'required'
         ];
     }
 }
