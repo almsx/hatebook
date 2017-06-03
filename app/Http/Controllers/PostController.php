@@ -39,6 +39,7 @@ class PostController extends Controller
         //dd($request->content);
         //Almacenaremos la información
         //dd($request->all());
+        //Con esta función insertamos dentro de la base de datos
         return Post::create($request->all());
 
     }
@@ -51,7 +52,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        //Lo que venga lo debe de mostrar
+        return $post;
     }
 
     /**
@@ -74,7 +76,10 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->content = $request->content;
+        $post->save();
+
+        return $post;
     }
 
     /**
@@ -85,6 +90,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return ['status' => 'true'];
     }
 }

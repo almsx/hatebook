@@ -21,8 +21,26 @@ Route::get('/', function () {
 });
 
 //Añado una nueva ruta
+//Obtenemos todos los post
+
+/*Estos sirven para hacer cada uno de las peticiones
+pero se soluciona con todo en el proximo linea*/
+
+//Rutas una por una
 Route::get('posts', 'PostController@index');
+//Almancenamos un post
 Route::post('posts', 'PostController@store');
+//Traemos un solo post
+Route::get('posts/{post}', 'PostController@show');
+//Actualizamos un post
+Route::put('posts/{post}', 'PostController@update');
+//Eliminamos un post
+Route::delete('posts/{post}', 'PostController@destroy');
+
+
+
+
+
 
 
 
