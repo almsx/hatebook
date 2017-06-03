@@ -21,7 +21,9 @@ Route::get('/', function () {
 });
 
 //Añado una nueva ruta
-Route::get('/posts', 'PostController@index');
+Route::get('posts', 'PostController@index');
+Route::post('posts', 'PostController@store');
+
 
 
 

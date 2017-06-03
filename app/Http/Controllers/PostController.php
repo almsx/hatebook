@@ -35,7 +35,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Equivalente a un var_dump
+        //dd($request->content);
+        //Almacenaremos la información
+        //dd($request->all());
+        return Post::create($request->all());
+
     }
 
     /**
