@@ -13,8 +13,11 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        //Tipos de datos dispoibe
+        //https://laravel.com/docs/5.4/migrations#creating-columns
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('content');
             $table->timestamps();
         });
     }
