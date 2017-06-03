@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/Code/raxum":{"type":null,"mount_options":["uid=1000","gid=1000"],"guestpath":"/home/vagrant/Code/raxum","hostpath":"/Users/almsx/Documents/laravel_projects/raxum","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/almsx/Documents/laravel_projects/raxum","disabled":false,"__vagrantfile":true}}}
