@@ -1,5 +1,8 @@
 <?php
 
+//use App\Models\Post;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +15,20 @@
 */
 
 Route::get('/', function () {
+	//Regresa todos los registros
+	//return Post::all();
     return view('welcome');
 });
 
+//Añado una nueva ruta
+Route::get('/posts', 'PostController@index');
+
+
+
+/*
 Route::get('/phpmyadmin', function(){
 	return redirect("http://localhost/phpmyadmin");
 });
 
 Route::resource('admin', 'AdministradoresController');
+*/
