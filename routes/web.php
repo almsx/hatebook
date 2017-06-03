@@ -27,6 +27,7 @@ Route::get('/', function () {
 pero se soluciona con todo en el proximo linea*/
 
 //Rutas una por una
+/*
 Route::get('posts', 'PostController@index');
 //Almancenamos un post
 Route::post('posts', 'PostController@store');
@@ -36,11 +37,8 @@ Route::get('posts/{post}', 'PostController@show');
 Route::put('posts/{post}', 'PostController@update');
 //Eliminamos un post
 Route::delete('posts/{post}', 'PostController@destroy');
-
-
-
-
-
+*/
+Route::resource('posts', 'PostController');
 
 
 
