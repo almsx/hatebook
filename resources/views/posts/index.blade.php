@@ -10,14 +10,9 @@
 		@forelse ($posts as $post)
 
 		<li>
-			<!-- Forma normal -->
-			<a href="/posts/{{ $post->id }}">
-				{{ $post->content }}
-			</a>
 			<!-- Forma Recomendada -->
-			|
-			<a href="{{ url('posts', $post->id)}}">
-				{{ $post->content }}
+			<a href="/posts/{{ $post->id }}">
+				{{ $post->abstract }}
 			</a>
 		</li>
 		@empty

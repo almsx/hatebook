@@ -13,10 +13,6 @@
 			{{ $post->content }}
 			<div class="media-footer">
 				Publicado {{ $post->created_at }} 
-				<br/>
-				Publicado {{ Carbon\Carbon::now()->diffForHumans($post->created_at) }} 
-     
-
 			</div>
 		</div>
 
