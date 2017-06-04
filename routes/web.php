@@ -14,10 +14,22 @@
 |
 */
 
+//Ruta temporal para crear un nuevo
+//registro en la base de datos :)
+Route::get('temp', function(){
+	return App\Models\Post::create([
+		'content' => 'Aqui testeando 2',
+		'user_id' => \Auth::user()->id
+	]);
+});
+
 Route::get('/', function () {
 	//Regresa todos los registros
 	//return Post::all();
-    return view('welcome');
+
+
+
+	return view('welcome');
 });
 
 //Añado una nueva ruta

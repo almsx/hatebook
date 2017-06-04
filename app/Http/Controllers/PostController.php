@@ -18,7 +18,20 @@ class PostController extends Controller
         //mostramos todos en forma de APU
         //return Post::all();
         //Mostramos todos en forma de web
-        $posts = Post::all();
+        //de todos los usuarios
+        //$posts = Post::all();
+        
+        //Mostramos solo los mios
+        //en orden descendente a partir
+        //de la fecha de creación
+        $posts = Post::where('user_id',\Auth::user()->id)
+        //Con estos se ordenan de acuerdo a mi seleccion
+        //->orderBy('created_at', 'desc')
+        //Utilizamos la funcion latest para ordenarlo
+        //basado en el campo created_at
+        ->latest()
+        ->get();
+
         return view('posts.index', compact('posts'));
     }
 
@@ -29,7 +42,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.form');
     }
 
     /**
@@ -46,7 +59,15 @@ class PostController extends Controller
         //dd($request->all());
         //Con esta función insertamos dentro de la base de datos
         //dd('chelsea');
-        return Post::create($request->all());
+        //return Post::create($request->all());
+
+        Post::create([
+            'content' => $request->content,
+            'user_id' => \Auth::user()->id
+        ]);
+
+        return redirect('posts');
+
 
     }
 

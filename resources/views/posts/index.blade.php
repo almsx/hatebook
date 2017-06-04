@@ -10,6 +10,7 @@
 			<a href="/posts/{{ $post->id }}">
 				{{ $post->abstract }}
 			</a>
+			<small>Publicado {{ $post->created_at }}</small>
 		</li>
 		@empty
 			<p>No has hecho ningun post</p>

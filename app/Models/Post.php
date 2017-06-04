@@ -14,7 +14,8 @@ class Post extends Model
 	*@return string
 	*/
 	protected $fillable = [
-	'content',
+		'content',
+		'user_id'
 	];
 
 	protected $append = [

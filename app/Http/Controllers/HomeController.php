@@ -24,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd(Auth::User());
-        return view('home');
+        //dd(Auth::User());
+        //return view('home');
+        return redirect('posts');
+
     }
 }
