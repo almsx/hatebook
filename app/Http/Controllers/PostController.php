@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class PostController extends Controller
 {
@@ -62,10 +64,10 @@ class PostController extends Controller
         //return $post;
         //Muestre una vista
         //return view('posts.post', compact('post'));
-        return view('posts.post')->withPost($post);
+     return view('posts.post')->withPost($post);
         //Revisar el tema de Paso de variables
-           
-    }
+
+ }
 
     /**
      * Show the form for editing the specified resource.

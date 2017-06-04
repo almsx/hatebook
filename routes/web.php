@@ -50,3 +50,6 @@ Route::get('/phpmyadmin', function(){
 
 Route::resource('admin', 'AdministradoresController');
 */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
