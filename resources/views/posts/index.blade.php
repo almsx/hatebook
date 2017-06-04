@@ -1,9 +1,5 @@
-@extends('layouts.app');
-
+@extends('layouts.app')
 @section('content')
-
-<!-- lo que sigue es una interpolacion -->
-
 <div class="panel-heading">Todos los posts</div>
 <div class="panel-body">
 	<ul>
