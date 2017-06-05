@@ -66,6 +66,9 @@ class PostController extends Controller
             'user_id' => \Auth::user()->id
         ]);
 
+        //Creación de mensajes
+        session()->flash('message', 'Pinche post creado');
+
         return redirect('posts');
 
 
@@ -125,6 +128,11 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return ['status' => 'true'];
+        //Esta linea devuelve un reponse
+        //return ['status' => 'true'];
+        //Esta linea devuelve un mensaje y redirecciona
+        session()->flash('message', 'Se fue ALV el post');
+
+        return redirect('posts');
     }
 }

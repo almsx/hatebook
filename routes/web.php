@@ -1,8 +1,6 @@
 <?php
 
 //use App\Models\Post;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,6 +50,16 @@ Route::delete('posts/{post}', 'PostController@destroy');
 */
 Route::resource('posts', 'PostController');
 
+//Implementando un middleware
+
+/*
+Route::resource('posts', 
+	'PostController', 
+	[
+		'middleware' => '\App\Http\Middleware\PostOwner',
+	]
+);
+*/
 
 
 
