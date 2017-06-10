@@ -13,6 +13,10 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    /* Función de Index Normal */
+
+    /*
     public function index()
     {
         //mostramos todos en forma de APU
@@ -30,6 +34,25 @@ class PostController extends Controller
         //Utilizamos la funcion latest para ordenarlo
         //basado en el campo created_at
         ->latest()
+        ->get();
+
+        return view('posts.index', compact('posts'));
+    }
+
+    */
+
+    /* Esta función permite crear una petición dentro del buscador
+    para que peudan buscarse solo posts especificos a partir de la 
+    busqueda en content*/
+
+    public function index(Request $request){
+        $eb = Post::where('user_id', \Auth::user()->id);
+
+        if($request->search){
+            $eb->where('content', 'like', '%'.$request->search.'%');
+        }
+
+        $posts = $eb->latest()
         ->get();
 
         return view('posts.index', compact('posts'));

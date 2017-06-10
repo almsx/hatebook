@@ -12,7 +12,9 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+
+//Creción de un modelo para generar usuarios
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -21,4 +23,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
+});
+
+//Creación de un modelo para generar posts :D
+
+$factory->define(App\Models\Post::class, function(Faker\Generator $faker) {
+	return [
+		'content' => $faker->text(200), 
+		'user_id' => rand(1,4)
+	];
 });

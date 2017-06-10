@@ -10,8 +10,27 @@
 @endif
 <!-- Aqui mandamos un mensaje -->
 
-<div class="panel-heading">Todos los posts</div>
+<div class="panel-heading">
+	Todos los posts mamon
+	
+	<br/>
+	<a href="/posts/create"><button class="btn btn-primary" type="button">Crear Post</button></a>
+	<div class="clearfix"></div>
+	
+	
+	
+	
+	
+</div>
 <div class="panel-body">
+	<form action="{{ route('posts.index') }}" method="GET" class="form-horizontal" role="form" >
+		<div class="input-group">
+			<input type="search" name="search" id="search" value="{{ old('search') }}" class="form-control" placeholder="busca entre los posts...">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Buscar!</button>
+			</span>
+		</div>
+	</form>
 	<ul>
 		@forelse ($posts as $post)
 

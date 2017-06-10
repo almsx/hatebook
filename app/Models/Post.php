@@ -42,7 +42,7 @@ class Post extends Model
 	*/
 	public function getAbstractAttribute($value)
 	{
-		return substr($this->content, 0, 5);
+		return substr($this->content, 0, 30);
 	}
 
     /*
