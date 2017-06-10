@@ -73,3 +73,5 @@ Route::resource('admin', 'AdministradoresController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('interactions', 'UserController@interactions')->name('interactions');

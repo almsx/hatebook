@@ -36,4 +36,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Post');
     }
+
+    /** 
+    * The users that belong to the post.
+    */
+    
+    public function interactions()
+    {
+        return $this->belongsToMany('App\Models\Post', 'interactions')->withPivot('reaction');
+    }
 }

@@ -66,11 +66,17 @@ class Post extends Model
 		return $this->belongsTo('App\Models\User', 'user_id');
 	}
 
-	//Otra relación :)
-	//UN usuario puede tener
-	//muchos posts
+	/** 
+	* The users that belong to the post.
+	*/
+
+	public function interactions()
+	{
+		return $this->belongsToMany('App\Models\User', 'interactions')->withPivot('reaction');
+	}
 
 	
+
 
 
 
