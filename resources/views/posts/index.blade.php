@@ -13,6 +13,10 @@
 <div class="panel-heading">
 	Todos los posts mamon
 	
+	@if (Request::has('search'))
+		<strong> que dicen {{ Request::get('search') }}</strong>
+	@endif
+	
 	<br/>
 	<a href="/posts/create"><button class="btn btn-primary" type="button">Crear Post</button></a>
 	<div class="clearfix"></div>
@@ -46,5 +50,10 @@
 		@endforelse
 		<!-- Aqu acaba la interpolacion -->
 	</ul>
+	<!-- Aregamos paginacion normal -->
+	
+	<!-- Agregamos paginacion para el buscador -->
+	{{ $posts->appends(['search' => Request::input('search')])->links() }}
+	
 </div>
 @stop

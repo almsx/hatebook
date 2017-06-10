@@ -53,7 +53,9 @@ class PostController extends Controller
         }
 
         $posts = $eb->latest()
-        ->get();
+        //->get();
+        //Paginaremos
+        ->paginate(10);
 
         return view('posts.index', compact('posts'));
     }

@@ -58,6 +58,20 @@ class Post extends Model
 		return $value;
 	}
 
+	/* Creación de un modelo de relacion */
+
+	///Un post tiene una relacion 1-1 ya que un post le pertenece a un solo usuario
+	public function owner()
+	{
+		return $this->belongsTo('App\Models\User', 'user_id');
+	}
+
+	//Otra relación :)
+	//UN usuario puede tener
+	//muchos posts
+
+	
+
 
 
 }
