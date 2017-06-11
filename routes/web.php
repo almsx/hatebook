@@ -12,6 +12,9 @@
 |
 */
 
+Auth::routes();
+
+
 //Ruta temporal para crear un nuevo
 //registro en la base de datos :)
 Route::get('temp', function(){
@@ -24,9 +27,6 @@ Route::get('temp', function(){
 Route::get('/', function () {
 	//Regresa todos los registros
 	//return Post::all();
-
-
-
 	return view('welcome');
 });
 
@@ -70,7 +70,6 @@ Route::get('/phpmyadmin', function(){
 
 Route::resource('admin', 'AdministradoresController');
 */
-Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
