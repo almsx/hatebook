@@ -10,7 +10,7 @@
                 <div class="panel-body">
                 <ul>
                     <li><a href="{{ route('posts.index') }}">Mis putos posts</a></li>
-                    <li><a href="{{ route('interactions')}}">Mis emputamientos</a></li>
+                    <li><a href="{{ route('interactions')}}">Mis pinches reacciones</a></li>
                     </ul>
                 </div>
             <!--/div>

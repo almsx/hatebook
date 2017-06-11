@@ -52,7 +52,8 @@ class PostController extends Controller
             $eb->where('content', 'like', '%'.$request->search.'%');
         }
 
-        $posts = $eb->latest()
+        $posts = $eb->withoutInteractions()
+        ->latest()
         //->get();
         //Paginaremos
         ->paginate(10);

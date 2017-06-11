@@ -75,6 +75,10 @@ class Post extends Model
 		return $this->belongsToMany('App\Models\User', 'interactions')->withPivot('reaction');
 	}
 
+	public function scopeWithoutInteractions($query)
+	{
+		return $query->doesntHave('interactions');
+	}
 	
 
 

@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function interactions()
     {
-        $interactions = \Auth::user()->interactions()->paginate(1);
+        $interactions = \Auth::user()->interactions()->paginate(4);
 
         return view('posts.interactions', compact('interactions'));
 
