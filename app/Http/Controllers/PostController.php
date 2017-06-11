@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
-use Illuminate\Http\UploadedFile;
 
 class PostController extends Controller
 {
@@ -96,8 +95,9 @@ class PostController extends Controller
 
         $image = $request->image;
         $date = \Carbon\Carbon::now()->format('YmdHis');
-        $name = $date .'-'.\Auth::user()->id . '.' .
-        $image->extension();
+        $name = $date .'-'.\Auth::user()->id;
+        //$image->extension();
+        $extension = $image->extension();
         
         //dd($name);
 
@@ -106,6 +106,10 @@ class PostController extends Controller
             //$path = $request->image->path();
             //dd($path);
             $image->storeAs('public/images', $name);
+
+            //Genero el thumbnail
+            //\Image::make($image)->resize(50, 50)->save('images/' . $name . '_thumb' . '.' . $extension);
+
 
         } else {
          session()->flash('message', $image->getErrorMessage());

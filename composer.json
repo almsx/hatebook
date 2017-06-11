@@ -9,7 +9,8 @@
         "jenssegers/mongodb": "^3.2",
         "laravel/framework": "5.4.*",
         "laravel/homestead": "^5.1",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "intervention/image": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
