@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Hatebook') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -36,7 +36,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
+                            {{ config('app.name', 'Hatebook') }}
                         </a>
                     </div>
 
@@ -81,18 +81,18 @@
             @if (session()->has('message'))
             <div 
             class="alert alert-{{ session()->get('message-type')}}">
-        {{ session() ->get('message') }}
+            {{ session() ->get('message') }}
+        </div>
+        @endif
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+
+                    @yield('content')
+                </div></div></div></div>
             </div>
-            @endif
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="panel panel-default">
 
-                        @yield('content')
-                    </div></div></div></div>
-                </div>
-
-                <!-- Scripts -->
-                <script src="{{ asset('js/app.js') }}"></script>
-            </body>
-            </html>
+            <!-- Scripts -->
+            <script src="{{ asset('js/app.js') }}"></script>
+        </body>
+        </html>

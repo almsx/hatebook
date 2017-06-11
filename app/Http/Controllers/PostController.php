@@ -94,7 +94,7 @@ class PostController extends Controller
 
         //Creación de mensajes
         session()->flash('message', 'Pinche post creado');
-        session()->flash('message-type', 'info');
+        session()->flash('message-type', 'success');
 
         return redirect('posts');
 

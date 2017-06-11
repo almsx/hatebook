@@ -28,7 +28,7 @@ class PostRequest extends FormRequest
     */
     public function rules()
     {
-        //http://laravel.com/docs/5.4/
+        //https://laravel.com/docs/5.4/validation#available-validation-rules
         return [
             'content' => 'required'
         ];
