@@ -16,19 +16,19 @@
 			</div>
 		</div>
 		
-		@if (Auth::user()->id == $post->user_id)
 		<!-- solo se mostrara si es la misma sesion -->
+		@can('delete-post', $post)
 		<div class="">
 			<form method="POST" action="{{ route('posts.destroy', $post->id) }}">
 				
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
-				<button class="btn btn-danger" type="submit">ALV</button>
+				<button class="btn btn-danger btn-sm" type="submit">Mandar ALV</button>
 				
 			</form>
 		</div>
 		<!-- solo se mostrara si es la misma sesion -->
-		@endif
+		@endcan
 		
 
 	</div>

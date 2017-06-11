@@ -152,6 +152,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+
+        /*Aqui aplicaremos la politica de eliminacion que se declaro en el AuthServiceProvider.php*/
+
+        if (\Gate::denies('delete-post', $post)){
+            abort(403, 'No se puede eliminar, seas mamon');
+        }
+
+
+
         $post->delete();
         //Esta linea devuelve un reponse
         //return ['status' => 'true'];
@@ -159,5 +168,9 @@ class PostController extends Controller
         session()->flash('message', 'Se fue ALV el post');
 
         return redirect('posts');
+
+
+
+
     }
 }
