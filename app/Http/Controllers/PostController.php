@@ -94,6 +94,7 @@ class PostController extends Controller
 
         //Creación de mensajes
         session()->flash('message', 'Pinche post creado');
+        session()->flash('message-type', 'info');
 
         return redirect('posts');
 
@@ -161,12 +162,12 @@ class PostController extends Controller
         }
 
 
-
         $post->delete();
         //Esta linea devuelve un reponse
         //return ['status' => 'true'];
         //Esta linea devuelve un mensaje y redirecciona
         session()->flash('message', 'Se fue ALV el post');
+        session()->flash('message-type', 'info');
 
         return redirect('posts');
 

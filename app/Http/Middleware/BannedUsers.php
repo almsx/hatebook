@@ -15,6 +15,15 @@ class BannedUsers
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(\Auth::user()->banned == 0) {
+            return $next($request);
+        }else{
+
+        session()->flash('message', 'Chinga tu madre, estas baneado');
+        session()->flash('message-type', 'danger');
+
+
+        return redirect('/home');
+        }
     }
 }

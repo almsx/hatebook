@@ -48,7 +48,13 @@ Route::put('posts/{post}', 'PostController@update');
 //Eliminamos un post
 Route::delete('posts/{post}', 'PostController@destroy');
 */
-Route::resource('posts', 'PostController');
+
+//Este sirve para rutas sin uso de middleware
+//Route::resource('posts', 'PostController');
+//Este pasara previamente por el middleware
+Route::resource('posts', 'PostController', ['middleware' => 'App\Http\Middleware\BannedUsers'
+]);
+
 
 //Implementando un middleware
 
