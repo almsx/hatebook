@@ -17,7 +17,6 @@
 		</div>
 		
 		<!-- solo se mostrara si es la misma sesion -->
-		@can('delete-post', $post)
 		<div class="">
 			<form method="POST" action="{{ route('posts.destroy', $post->id) }}">
 				
@@ -28,9 +27,7 @@
 			</form>
 		</div>
 		<!-- solo se mostrara si es la misma sesion -->
-		@endcan
 		
-
 	</div>
 </div>
 
