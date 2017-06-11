@@ -6,7 +6,7 @@
 	<div class="media">
 		<div class="media-left">
 			<a href="#">
-				<img class="media-object" src="..." alt="...">
+				<img class="media-object" src="{{Storage::url('images/'.$post->image) }}" alt="{{ $post->abstract }}">
 			</a>
 		</div>
 		<div class="media-body">

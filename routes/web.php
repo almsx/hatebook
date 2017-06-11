@@ -77,6 +77,8 @@ Route::get('/phpmyadmin', function(){
 Route::resource('admin', 'AdministradoresController');
 */
 
+Route::get('/getentry', 'PostController@get');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('interactions', 'UserController@interactions')->name('interactions');

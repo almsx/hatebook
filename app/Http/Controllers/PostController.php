@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class PostController extends Controller
 {
@@ -87,19 +88,47 @@ class PostController extends Controller
         //dd('chelsea');
         //return Post::create($request->all());
 
-        Post::create([
-            'content' => $request->content,
-            'user_id' => \Auth::user()->id
+        //Subiremos la imagen
+
+        //dd($request->all());
+        //dd($request)->file();
+        //dd($request)->file('image');
+
+        $image = $request->image;
+        $date = \Carbon\Carbon::now()->format('YmdHis');
+        $name = $date .'-'.\Auth::user()->id . '.' .
+        $image->extension();
+        
+        //dd($name);
+
+        if ($image->isValid()) {
+            // valido tipo de imagen, peso, etc
+            //$path = $request->image->path();
+            //dd($path);
+            $image->storeAs('public/images', $name);
+
+        } else {
+         session()->flash('message', $image->getErrorMessage());
+         session()->flash('message-type', 'success');
+
+         return back();
+
+     }
+
+     Post::create([
+        'content' => $request->content,
+        'user_id' => \Auth::user()->id,
+        'image' => $name
         ]);
 
         //Creación de mensajes
-        session()->flash('message', 'Pinche post creado');
-        session()->flash('message-type', 'success');
+     session()->flash('message', 'Pinche post creado');
+     session()->flash('message-type', 'success');
 
-        return redirect('posts');
+     return redirect('posts');
 
 
-    }
+ }
 
     /**
      * Display the specified resource.
@@ -113,10 +142,10 @@ class PostController extends Controller
         //return $post;
         //Muestre una vista
         //return view('posts.post', compact('post'));
-     return view('posts.post')->withPost($post);
+       return view('posts.post')->withPost($post);
         //Revisar el tema de Paso de variables
 
- }
+   }
 
     /**
      * Show the form for editing the specified resource.
@@ -174,5 +203,14 @@ class PostController extends Controller
 
 
 
+    }
+
+    public function get($filename){
+    
+        $entry = Fileentry::where('filename', '=', $filename)->firstOrFail();
+        $file = Storage::disk('local')->get($entry->filename);
+ 
+        return (new Response($file, 200))
+              ->header('Content-Type', $entry->mime);
     }
 }

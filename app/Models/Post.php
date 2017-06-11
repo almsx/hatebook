@@ -15,11 +15,12 @@ class Post extends Model
 	*/
 	protected $fillable = [
 		'content',
-		'user_id'
+		'user_id',
+		'image',
 	];
 
 	protected $append = [
-	'abstract',
+		'abstract',
 	];
 
     /*
